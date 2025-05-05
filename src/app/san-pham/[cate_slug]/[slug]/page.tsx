@@ -6,11 +6,11 @@ import { getProduct } from "@/server/product-detail";
 import { SearchParams } from "nuqs";
 
 type PageProps = {
-  params: {
+  params: Promise<{
     slug: string;
     cate_slug: string;
-  };
-  searchParams: SearchParams;
+  }>;
+  searchParams: Promise<SearchParams>;
 };
 
 export default async function Page({ params, searchParams }: PageProps) {
