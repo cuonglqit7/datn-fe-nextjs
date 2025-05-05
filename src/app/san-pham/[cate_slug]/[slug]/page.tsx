@@ -5,13 +5,15 @@ import { BreadcrumbWithCustomSeparator } from "@/components/breadcrumb/Breadcrum
 import { getProduct } from "@/server/product-detail";
 import { SearchParams } from "nuqs";
 
-export default async function Page({
-  params,
-  searchParams,
-}: {
-  params: { slug: string; cate_slug: string };
+type PageProps = {
+  params: {
+    slug: string;
+    cate_slug: string;
+  };
   searchParams: SearchParams;
-}) {
+};
+
+export default async function Page({ params, searchParams }: PageProps) {
   const { slug, cate_slug } = await params;
   const product: any = await getProduct(slug);
   if (!product) throw new Error("Không tìm thấy sản phẩm");
