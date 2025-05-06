@@ -66,7 +66,10 @@ export default function ButtonFavorite({
       if (!res.ok) throw new Error("Cập nhật yêu thích thất bại");
 
       setIsFavorite(!isFavorite);
-      setFavoriteQuantity((prev) => (isFavorite ? prev - 1 : prev + 1));
+      const newQuantity = isFavorite
+        ? favoriteQuantity - 1
+        : favoriteQuantity + 1;
+      setFavoriteQuantity(newQuantity);
       toast.success(
         `${isFavorite ? "Bỏ yêu thích" : "Đã yêu thích"} ${productName}`
       );

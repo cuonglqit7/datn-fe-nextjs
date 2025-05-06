@@ -28,11 +28,11 @@ interface User {
 
 export default function Page() {
   const { sessionToken } = useSession();
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [editingField, setEditingField] = useState<string | null>(null);
-  const [formData, setFormData] = useState<Partial<User>>({});
+  const [formData, setFormData] = useState<any>({});
 
   useEffect(() => {
     const fetchUser = async () => {

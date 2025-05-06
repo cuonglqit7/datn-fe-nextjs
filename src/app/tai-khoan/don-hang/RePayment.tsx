@@ -10,7 +10,7 @@ interface RePaymentProps {
 
 export default function RePayment({ orderId }: RePaymentProps) {
   const { sessionToken } = useSession();
-  const [payment, setPayment] = useState(null);
+  const [payment, setPayment] = useState<any>("");
   const router = useRouter();
   useEffect(() => {
     const getPayment = async () => {
@@ -33,7 +33,7 @@ export default function RePayment({ orderId }: RePaymentProps) {
 
   const handlePayment = () => {
     if (payment) {
-      router.push(payment.url_payment);
+      router.push(payment?.url_payment);
     }
   };
   return (

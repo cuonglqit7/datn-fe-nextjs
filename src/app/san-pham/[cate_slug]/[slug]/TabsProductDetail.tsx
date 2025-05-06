@@ -33,7 +33,7 @@ export function TabsProductDetail({ product }: TabsDetailProductProps) {
   const [currentUser, setCurrentUser] = useState<any>(null);
   const { sessionToken } = useSession();
 
-  const attributes = product.attributes;
+  const attributes: any = product.attributes;
 
   // Hàm lấy thông tin người dùng hiện tại
   const fetchCurrentUser = async () => {
@@ -47,9 +47,8 @@ export function TabsProductDetail({ product }: TabsDetailProductProps) {
       if (!res.ok) {
         throw new Error(`Không thể lấy thông tin người dùng: ${res.status}`);
       }
-      const data = await res.json();
-      console.log("Current user data:", data); // Debug
-      return data.data; // Giả định { data: { id, name, avatar } }
+      const data: any = await res.json();
+      return data.data;
     } catch (error) {
       console.error("Error fetching current user:", error);
       return null;
@@ -89,7 +88,7 @@ export function TabsProductDetail({ product }: TabsDetailProductProps) {
           // User đã được load từ server (with('user:id,name'))
           // Chỉ cần lấy avatar nếu cần
           try {
-            const res = await getUser(review.user_id);
+            const res: any = await getUser(review.user_id);
             return {
               ...review,
               user: { ...review.user, avatar: res.data.avatar },

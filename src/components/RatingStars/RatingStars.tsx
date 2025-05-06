@@ -1,3 +1,4 @@
+import { JSX } from "react";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
 interface RatingStarsProps {
@@ -5,7 +6,7 @@ interface RatingStarsProps {
 }
 
 export function RatingStars({ rating }: RatingStarsProps) {
-  const stars = [];
+  const stars: JSX.Element[] = [];
 
   for (let i = 1; i <= 5; i++) {
     if (rating >= i) {
